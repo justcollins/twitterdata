@@ -3,6 +3,7 @@
 import * as React from 'react';
 import './App.css';
 import './1000TrumpTweets.json';
+import WordCount from './Wordcount';
 
 const logo = require('./logo.svg');
 const fs = require('fs');
@@ -31,7 +32,6 @@ class App extends React.Component {
         username: twitterData[i].user.name,
         text: twitterData[i].text
       };
-      // 'ddd MMM DD HH:mm:ss Z YYYY'
       tweetObjects.push(midTweet);
     }
     let hourOfDay = {};
@@ -57,8 +57,6 @@ class App extends React.Component {
     this.setState({
       hourOfDay: hourOfDay,
     });
-    console.log("WordCount: ");
-    console.log(wordCount);
   }
   render() {
     return (
@@ -70,6 +68,7 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <WordCount wordList={WordCount}/>
       </div>
     );
   }
