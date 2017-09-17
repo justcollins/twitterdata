@@ -1,9 +1,6 @@
 import * as React from 'react';
 
-
-
-
-class Wordcount extends React.Component<{wordList:any}, {wordList:any}>{
+class Wordcount extends React.Component<{wordList:Object}, {wordList:Object}>{
     constructor(props){
         super(props);
         this.state = {
@@ -11,7 +8,10 @@ class Wordcount extends React.Component<{wordList:any}, {wordList:any}>{
         };
     }
     componentDidMount(){
-        console.log(this.state.wordList);
+        let listified = Object.keys(this.state.wordList).map((key)=>{
+            return [key, this.state.wordList[key]];
+        })
+        console.log(listified);
     }
     render(){
         return(

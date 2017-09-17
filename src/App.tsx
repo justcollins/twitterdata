@@ -1,13 +1,10 @@
-// <reference path="../node_modules/moment/moment.d.ts" />
-
 import * as React from 'react';
 import './App.css';
 import './1000TrumpTweets.json';
 import WordCount from './Wordcount';
 
 const logo = require('./logo.svg');
-const fs = require('fs');
-//const dateFns = require('date-fns');
+// const fs = require('fs');
 
 interface Tweet {
   id: Number;
@@ -16,12 +13,10 @@ interface Tweet {
   text: String;
 
 }
-class App extends React.Component {
-  componentDidMount() {
-    console.log(fs);
+class App extends React.Component<any,any> {
+  componentWillMount() {
     let twitterData: any = require('./1000TrumpTweets.json');
-    let betterData: any = require('./output.json');
-    console.log(betterData);
+    // let betterData: any = require('./output.json');
     let tweetObjects: Array<Tweet> = [];
     for (let i = 0; i < twitterData.length; i++) {
       let midTime = new Date(Date.parse(twitterData[i].created_at));
@@ -54,9 +49,10 @@ class App extends React.Component {
         hourOfDay[hour] =  1;
       }
     }
-    this.setState({
+    this.state = {
       hourOfDay: hourOfDay,
-    });
+      wordCount: wordCount,
+    };
   }
   render() {
     return (
@@ -68,7 +64,7 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <WordCount wordList={WordCount}/>
+        <WordCount wordList={this.state.wordCount}/>
       </div>
     );
   }
