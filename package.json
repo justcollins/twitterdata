@@ -7,9 +7,14 @@
     "@types/node": "^8.0.28",
     "@types/react": "^16.0.5",
     "@types/react-dom": "^15.5.4",
+    "d3": "^4.10.2",
     "react": "^15.6.1",
+    "react-bubble-chart": "^0.4.0",
+    "react-d3": "^0.4.0",
+    "react-d3-basic": "^1.6.11",
     "react-dom": "^15.6.1",
-    "react-scripts-ts": "2.6.0"
+    "react-scripts-ts": "2.6.0",
+    "sentiment": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts-ts start",
